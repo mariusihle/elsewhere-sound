@@ -39,7 +39,7 @@ function App() {
 
             <nav>
               <button onClick={() => navigateTo("about")}>ABOUT US</button>
-              <button onClick={() => navigateTo("upload")}>UPLOAD</button>
+              <button onClick={() => navigateTo("upload")}>UPLOAD YOUR MIX</button>
               <button onClick={() => navigateTo("mixed-series")}>
                 MIXED SERIES
               </button>
