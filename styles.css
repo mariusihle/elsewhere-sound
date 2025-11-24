@@ -65,7 +65,7 @@ body {
   position: fixed;
   inset: 0;
   display: flex;
-  background: rgba(0, 0, 0, 0.3); /* Option A: light darkening */
+  background: rgba(0, 0, 0, 0.3); /* subtle darkening */
   cursor: pointer;
   z-index: 100;
 }
@@ -123,8 +123,8 @@ body {
 .menu-logo-icon img {
   width: 80px;
   height: 80px;
-  margin-top: 120px;
-  margin-bottom: 140px;
+  margin-top: 40px;
+  margin-bottom: 160px;
 }
 
 /* CONTENT PAGES */
@@ -187,10 +187,12 @@ body {
   transform: rotate(90deg);
 }
 
-/* UPLOAD LAYOUT */
-.upload-layout {
+/* UPLOAD LAYOUT – ensure it's above the dark overlay */
+.upload-page .upload-layout {
   display: flex;
   gap: 80px;
+  position: relative;
+  z-index: 1; /* critical: keeps form and text above ::before overlay and clickable */
 }
 
 .upload-text {
@@ -277,7 +279,7 @@ body {
 
 /* RESPONSIVE */
 @media (max-width: 1024px) {
-  .upload-layout {
+  .upload-page .upload-layout {
     flex-direction: column;
   }
 }
