@@ -101,6 +101,7 @@ function App() {
                 Before you upload your mix, there's a few things you should
                 know:
               </p>
+
               <ul>
                 <li>
                   We don't discriminate, we only care about quality and
@@ -119,6 +120,7 @@ function App() {
                   groovy, beautiful, organic, real.
                 </li>
               </ul>
+
               <p>
                 Some keywords to keep in mind: Story driven, warm, deep, groovy,
                 beautiful, organic, real.
@@ -127,33 +129,11 @@ function App() {
 
             <div className="upload-form">
               <form action="https://formspree.io/f/mzzwdyye" method="POST">
-                <input
-                  name="artist"
-                  type="text"
-                  placeholder="DJ / Artist Name"
-                  required
-                />
-                <input
-                  name="email"
-                  type="email"
-                  placeholder="Email"
-                  required
-                />
-                <input
-                  name="mix_url"
-                  type="url"
-                  placeholder="Mix URL"
-                  required
-                />
-                <input
-                  name="location"
-                  type="text"
-                  placeholder="Where do you live?"
-                />
-                <textarea
-                  name="notes"
-                  placeholder="Notes about your mix..."
-                ></textarea>
+                <input name="artist" type="text" placeholder="DJ / Artist Name" required />
+                <input name="email" type="email" placeholder="Email" required />
+                <input name="mix_url" type="url" placeholder="Mix URL" required />
+                <input name="location" type="text" placeholder="Where do you live?" />
+                <textarea name="notes" placeholder="Notes about your mix..."></textarea>
                 <button type="submit">SUBMIT</button>
               </form>
             </div>
@@ -167,15 +147,11 @@ function App() {
           <button className="close-btn" onClick={goHome}>✕</button>
           <div className="page-content">
             <h1>ELSEWHERE MIXED SERIES</h1>
-            <p>
-              Welcome to the Elsewhere mixed series.
-            </p>
+            <p>Welcome to the Elsewhere mixed series.</p>
             <p>
               As the world grows more connected, the music scene gets more
               saturated, and it's getting harder to find high quality
-              performers. We want to present narratives from all across the
-              globe, and give musical storytellers a platform to tell their
-              tales.
+              performers.
             </p>
             <p>
               The goal is to connect with small intimate venues with quality
