@@ -88,8 +88,11 @@ body {
   border-right: 1px solid rgba(255, 255, 255, 0.25);
 }
 
+/* MENU LOGO TEXT */
 .menu-content h1 {
+  font-family: "Atteron", serif;
   font-size: 40px;
+  letter-spacing: 8px;
   margin-bottom: 80px;
 }
 
@@ -108,6 +111,7 @@ body {
   font-size: 24px;
   cursor: pointer;
   letter-spacing: 3px;
+  transition: 0.3s;
 }
 
 .menu-content nav button:hover {
@@ -115,7 +119,7 @@ body {
   transform: translateX(10px);
 }
 
-/* MENU LOGO */
+/* MENU LOGO ICON */
 .menu-logo-icon img {
   width: 80px;
   height: 80px;
@@ -150,6 +154,7 @@ body {
 }
 
 .page-content h1 {
+  font-family: "Atteron", serif;
   font-size: 42px;
   letter-spacing: 6px;
   margin-bottom: 40px;
@@ -194,7 +199,9 @@ body {
 }
 
 .upload-text h1 {
+  font-family: "Atteron", serif;
   font-size: 42px;
+  letter-spacing: 6px;
   margin-bottom: 40px;
 }
 
