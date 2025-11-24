@@ -189,26 +189,26 @@ body {
   transform: rotate(90deg);
 }
 
-/* UPLOAD PAGE – 2x 50% columns */
+/* UPLOAD PAGE – 2x 50% columns on desktop */
 .upload-page .upload-layout {
   display: flex;
   gap: 80px;
   position: relative;
   z-index: 1;
-  height: 100%;          /* stretch to full page height */
+  height: 100%;
 }
 
 /* Left column: text */
 .upload-text {
-  flex: 1;               /* 50% of width */
+  flex: 1;
 }
 
 /* Right column: form (centered) */
 .upload-form {
-  flex: 1;               /* 50% of width */
+  flex: 1;
   display: flex;
-  align-items: center;   /* vertical center */
-  justify-content: center; /* horizontal center */
+  align-items: center;
+  justify-content: center;
 }
 
 /* Upload text styles */
@@ -297,30 +297,111 @@ body {
   border-radius: 8px;
 }
 
-/* RESPONSIVE */
+/* TABLET BREAKPOINT */
 @media (max-width: 1024px) {
-  .upload-page .upload-layout {
-    flex-direction: column;
-    gap: 40px;
+  .content-page {
+    padding: 60px;
   }
 
-  .upload-form {
-    align-items: flex-start;
-    justify-content: flex-start;
+  .upload-page .upload-layout {
+    gap: 40px;
   }
 }
 
+/* PHONE BREAKPOINT */
 @media (max-width: 768px) {
-  .menu-content {
-    width: 80%;
+  /* Home */
+  .hamburger-menu {
+    top: 40px;
+    left: 30px;
   }
 
+  /* Menu: full width on phone */
+  .menu-content {
+    width: 100%;
+    padding: 60px 30px;
+  }
+
+  .menu-content h1 {
+    font-size: 32px;
+    letter-spacing: 5px;
+    margin-bottom: 50px;
+  }
+
+  .menu-content nav button {
+    font-size: 20px;
+    text-align: center;
+  }
+
+  .menu-logo-icon img {
+    width: 80px;
+    height: 80px;
+    bottom: 40px;
+  }
+
+  /* Pages */
   .content-page {
-    padding: 60px 40px;
+    padding: 40px 24px;
+  }
+
+  .page-content {
+    max-width: 100%;
+  }
+
+  .page-content h1 {
+    font-size: 30px;
+    letter-spacing: 4px;
+    margin-bottom: 28px;
+  }
+
+  .page-content p {
+    font-size: 16px;
+    line-height: 1.7;
+    margin-bottom: 20px;
   }
 
   .close-btn {
-    top: 40px;
-    right: 40px;
+    top: 30px;
+    right: 24px;
+    font-size: 26px;
+  }
+
+  /* Upload: stack vertically on phone */
+  .upload-page .upload-layout {
+    flex-direction: column;
+    gap: 32px;
+    height: auto;
+    margin-top: 40px;
+  }
+
+  .upload-text h1 {
+    font-size: 30px;
+    margin-bottom: 28px;
+  }
+
+  .upload-text p,
+  .upload-text li {
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  .upload-form {
+    align-items: stretch;
+    justify-content: flex-start;
+  }
+
+  .upload-form form {
+    max-width: 100%;
+  }
+
+  .upload-form input,
+  .upload-form textarea {
+    font-size: 16px;
+    padding: 12px 16px;
+  }
+
+  .upload-form button {
+    width: 100%;
+    text-align: center;
   }
 }
