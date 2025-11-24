@@ -1,7 +1,7 @@
-import React, { useState } from "react";
-import "./styles.css";
+// app.js
+const { useState } = React;
 
-export default function App() {
+function App() {
   const [currentPage, setCurrentPage] = useState("home");
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -33,7 +33,7 @@ export default function App() {
         <div className="menu-overlay" onClick={() => setMenuOpen(false)}>
           <div
             className="menu-content"
-            onClick={(e) => e.stopPropagation()} // hindrer klikk i panelet fra å lukke menyen
+            onClick={(e) => e.stopPropagation()} // prevent click inside panel from closing menu
           >
             <h1>ElsewheRe</h1>
             <nav>
@@ -130,7 +130,12 @@ export default function App() {
                   placeholder="DJ / Artist Name"
                   required
                 />
-                <input name="email" type="email" placeholder="Email" required />
+                <input
+                  name="email"
+                  type="email"
+                  placeholder="Email"
+                  required
+                />
                 <input
                   name="mix_url"
                   type="url"
@@ -231,3 +236,8 @@ export default function App() {
     </div>
   );
 }
+
+// Mount React app
+const rootElement = document.getElementById("root");
+const root = ReactDOM.createRoot(rootElement);
+root.render(<App />);
