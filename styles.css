@@ -1,14 +1,15 @@
-/* Custom Fonts */
+/* FONTS */
 @font-face {
   font-family: "Atteron";
-  src: url("/Atteron Personal Use Only.ttf") format("truetype");
+  src: url("Atteron.ttf") format("truetype");
 }
 
 @font-face {
   font-family: "Questrial";
-  src: url("/Questrial-Regular.ttf") format("truetype");
+  src: url("Questrial.ttf") format("truetype");
 }
 
+/* RESET */
 * {
   margin: 0;
   padding: 0;
@@ -21,13 +22,13 @@ body {
   overflow: hidden;
 }
 
+/* APP */
 .app {
   width: 100vw;
   height: 100vh;
-  position: relative;
 }
 
-/* Home Page */
+/* HOME PAGE */
 .home-page {
   width: 100%;
   height: 100%;
@@ -37,86 +38,66 @@ body {
   position: relative;
 }
 
-/* Hamburger Menu Button */
+/* HAMBURGER */
 .hamburger-menu {
   position: absolute;
   top: 80px;
   left: 80px;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  z-index: 10;
   width: 24px;
   height: 18px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  z-index: 20;
 }
 
 .hamburger-menu div {
   width: 100%;
   height: 3px;
   background: white;
-  transition: 0.3s;
 }
 
-.hamburger-menu:hover div {
-  background: #ddd;
-}
-
-/* Menu Overlay – full screen */
+/* MENU OVERLAY */
 .menu-overlay {
   position: fixed;
   inset: 0;
-  background-image: url("https://i.imgur.com/x0Ck7aA.jpeg");
-  background-size: cover;
-  background-position: center;
-  z-index: 100;
-  animation: fadeIn 0.3s ease;
+  display: flex;
+  background: rgba(0, 0, 0, 0.6);
   cursor: pointer;
+  z-index: 100;
 }
 
-.menu-overlay::before {
-  content: "";
-  position: absolute;
-  inset: 0;
+/* MENU PANEL */
+.menu-content {
+  width: 480px;
+  height: 100vh;
   background: radial-gradient(
     circle at 50% 50%,
-    rgba(7, 17, 17, 0.65),
-    rgba(0, 0, 0, 0.9)
+    rgba(7, 17, 17, 0.9),
+    rgba(0, 0, 0, 1)
   );
-}
-
-/* Menu Content – smal boks på venstre side */
-.menu-content {
-  position: relative;
-  width: 480px;
-  height: 100%;
   padding: 80px 60px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   align-items: center;
-  pointer-events: auto;
-}
-
-/* Sentrer boksen horisontalt på store skjermer hvis ønskelig */
-/* Fjern margin-left om du vil ha den helt til venstre */
-.menu-content {
-  margin-left: 0;
+  justify-content: space-between;
+  cursor: default;
+  border-right: 1px solid rgba(255, 255, 255, 0.25);
 }
 
 .menu-content h1 {
-  text-align: center;
   font-size: 40px;
   margin-bottom: 80px;
 }
 
+/* MENU NAV */
 .menu-content nav {
   display: flex;
   flex-direction: column;
   gap: 35px;
-  flex: 1;
 }
 
 .menu-content nav button {
@@ -125,35 +106,33 @@ body {
   color: white;
   font-family: "Atteron", serif;
   font-size: 24px;
-  text-align: center;
   cursor: pointer;
-  padding: 10px 0;
   letter-spacing: 3px;
-  transition: 0.3s;
 }
 
 .menu-content nav button:hover {
-  color: #aaa;
+  color: #bbb;
   transform: translateX(10px);
 }
 
+/* MENU LOGO */
 .menu-logo-icon img {
   width: 80px;
   height: 80px;
-  margin-top: 100px; /* skyver bildet ned fra teksten over */
+  margin-top: 40px;
   margin-bottom: 160px;
 }
 
-/* Content Pages */
+/* CONTENT PAGES */
 .content-page {
   width: 100%;
   height: 100vh;
+  padding: 80px;
+  overflow-y: auto;
   background-image: url("https://i.imgur.com/x0Ck7aA.jpeg");
   background-size: cover;
   background-position: center;
   position: relative;
-  overflow-y: auto;
-  padding: 80px;
 }
 
 .content-page::before {
@@ -168,13 +147,10 @@ body {
   position: relative;
   z-index: 1;
   max-width: 900px;
-  margin: 0;
 }
 
 .page-content h1 {
-  font-family: "Atteron", serif;
   font-size: 42px;
-  font-weight: 400;
   letter-spacing: 6px;
   margin-bottom: 40px;
 }
@@ -184,63 +160,32 @@ body {
   font-size: 20px;
   line-height: 1.8;
   margin-bottom: 25px;
-  font-weight: 300;
 }
 
-.page-content ul {
-  list-style: none;
-  padding-left: 0;
-}
-
-.page-content li {
-  font-family: "Questrial", sans-serif;
-  font-size: 20px;
-  line-height: 1.8;
-  margin-bottom: 20px;
-  padding-left: 30px;
-  position: relative;
-  font-weight: 300;
-}
-
-.page-content li::before {
-  content: "•";
-  position: absolute;
-  left: 0;
-  color: white;
-  font-size: 24px;
-}
-
-/* Close Button – 30x30 px */
+/* CLOSE BUTTON */
 .close-btn {
   position: absolute;
   top: 80px;
   right: 80px;
+  width: 30px;
+  height: 30px;
+  font-size: 30px;
   background: transparent;
   border: none;
   color: white;
-  font-size: 24px; /* størrelse på "X" */
   cursor: pointer;
-  z-index: 128;
-  width: 30px;
-  height: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0;
-  transition: 0.3s;
+  z-index: 200;
 }
 
 .close-btn:hover {
-  color: #aaa;
+  color: #bbb;
   transform: rotate(90deg);
 }
 
-/* Upload Page */
-.upload-page .upload-layout {
+/* UPLOAD LAYOUT */
+.upload-layout {
   display: flex;
   gap: 80px;
-  position: relative;
-  z-index: 1;
 }
 
 .upload-text {
@@ -249,45 +194,33 @@ body {
 }
 
 .upload-text h1 {
-  font-family: "Atteron", serif;
   font-size: 42px;
-  font-weight: 400;
-  letter-spacing: 6px;
   margin-bottom: 40px;
 }
 
-.upload-text p {
+.upload-text p,
+.upload-text li {
   font-family: "Questrial", sans-serif;
   font-size: 20px;
-  line-height: 1.8;
-  margin-bottom: 25px;
-  font-weight: 300;
 }
 
 .upload-text ul {
   list-style: none;
-  padding-left: 0;
 }
 
 .upload-text li {
-  font-family: "Questrial", sans-serif;
-  font-size: 20px;
-  line-height: 1.8;
-  margin-bottom: 20px;
   padding-left: 30px;
   position: relative;
-  font-weight: 300;
+  margin-bottom: 20px;
 }
 
 .upload-text li::before {
   content: "•";
   position: absolute;
   left: 0;
-  color: white;
-  font-size: 24px;
 }
 
-/* Upload Form */
+/* UPLOAD FORM */
 .upload-form {
   flex: 1;
   max-width: 450px;
@@ -302,43 +235,32 @@ body {
 .upload-form input,
 .upload-form textarea {
   background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.3);
   color: white;
+  border: 1px solid rgba(255, 255, 255, 0.3);
   padding: 15px 20px;
   font-family: "Questrial", sans-serif;
   font-size: 18px;
-  border-radius: 4px;
-}
-
-.upload-form input::placeholder,
-.upload-form textarea::placeholder {
-  color: rgba(255, 255, 255, 0.6);
 }
 
 .upload-form textarea {
   min-height: 150px;
-  resize: vertical;
 }
 
-.upload-form button[type="submit"] {
+.upload-form button {
   background: white;
   color: black;
   border: none;
   padding: 15px 40px;
-  font-family: "Questrial", sans-serif;
   font-size: 18px;
   letter-spacing: 3px;
   cursor: pointer;
-  transition: 0.3s;
-  border-radius: 4px;
 }
 
-.upload-form button[type="submit"]:hover {
+.upload-form button:hover {
   background: #ddd;
-  transform: translateY(-2px);
 }
 
-/* SoundCloud Container */
+/* SOUNDCLOUD */
 .soundcloud-container {
   margin-top: 40px;
   padding: 30px;
@@ -346,44 +268,20 @@ body {
   border-radius: 8px;
 }
 
-/* Animations */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-/* Responsive */
+/* RESPONSIVE */
 @media (max-width: 1024px) {
-  .upload-page .upload-layout {
+  .upload-layout {
     flex-direction: column;
-  }
-
-  .page-content {
-    max-width: 100%;
   }
 }
 
 @media (max-width: 768px) {
+  .menu-content {
+    width: 80%;
+  }
+
   .content-page {
     padding: 60px 40px;
-  }
-
-  .page-content h1 {
-    font-size: 32px;
-  }
-
-  .page-content p,
-  .page-content li {
-    font-size: 18px;
-  }
-
-  .menu-content {
-    width: 100%;
-    padding: 60px 30px;
   }
 
   .close-btn {
