@@ -65,19 +65,24 @@ function App() {
               We're a borderless DJ collective built around organic- and melodic
               house music.
             </p>
-            <p>Our goal is simple:</p>
             <p>
-              Surface high-level, narrative-driven mixes from DJs around the
-              world and give them a platform to present their stories and build
-              communities.
+              Our goal is to surface high-level, narrative-driven mixes from DJs
+              around the world and give them a platform to present their stories
+              and build communities.
             </p>
             <p>
-              We work with high performing artists from across the world, and
-              together we open intimate rooms to present music with intention.
+             We work with high performing artists from across the world, and
+              together we want to open intimate rooms to present narrative
+              driven performances. These rooms will be a place for enjoyment,
+              for great listening experiences, for musical inspiration and for
+              new friends to meet and build communities.
             </p>
             <p>
               We chose the name Elsewhere because nothing we do is confined to
-              one place or one lineage.
+              one place, one scene, or one lineage. Our sound doesn't come from
+              any local circuit - it comes from elsewhere. From distant
+              influences, foreign cultures, and from artists whose work deserves
+              a wider horizon.
             </p>
           </div>
         </div>
@@ -119,15 +124,36 @@ function App() {
         </div>
       )}
 
-      {/* MIXED SERIES */}
+      {/* MIXED SERIES – UPDATED COPY */}
       {currentPage === "mixed-series" && (
         <div className="content-page">
           <button className="close-btn" onClick={goHome}>✕</button>
           <div className="page-content">
             <h1>ELSEWHERE MIXED SERIES</h1>
-            <p>Welcome to our mixed series.</p>
-            <p>We want to present narratives from all across the world.</p>
-            <p>SoundCloud embeds coming soon.</p>
+            <p>
+              Welcome to the Elsewhere mixed series.
+            </p>
+            <p>
+              As the world grows more connected, the music scene gets more
+              saturated, and it's getting harder to find high quality
+              performers. We want to present narratives from all across the
+              globe, and give musical storytellers a platform to tell their
+              tales.
+            </p>
+            <p>
+              The goal is to connect with small intimate venues with quality
+              sound systems all over the world, and use our mixed series to
+              qualify DJs for those spaces.
+            </p>
+            <p>
+             Our network of producers and DJs has grown big over the years, so
+              finding a venue near you should be possible if we feel like your
+              mix has the sound we're looking for.
+            </p>
+            <p>
+              Please enjoy these wonderful stories, and hopefully, one day,
+              we'll be gathering in a city near you.
+            </p>
             <div className="soundcloud-container">
               <p>SoundCloud embeds coming soon...</p>
             </div>
