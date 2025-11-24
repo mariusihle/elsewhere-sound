@@ -1,4 +1,4 @@
-# Netlify Configuration
+# netlify.toml
 [build]
-  command = "npm run build"
-  publish = "build"
+  # No build step, just serve static files from repo root
+  publish = "."
