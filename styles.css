@@ -47,11 +47,11 @@ body {
   height: 18px;
   border: none;
   background: transparent;
-  cursor: pointer;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  z-index: 20;
+  cursor: pointer;
+  z-index: 100;
 }
 
 .hamburger-menu div {
@@ -60,17 +60,17 @@ body {
   background: white;
 }
 
-/* MENU OVERLAY – subtle transparent scrim */
+/* MENU OVERLAY */
 .menu-overlay {
   position: fixed;
   inset: 0;
-  display: flex;
   background: rgba(0, 0, 0, 0.3);
+  display: flex;
   cursor: pointer;
-  z-index: 100;
+  z-index: 200;
 }
 
-/* MENU PANEL – semi-transparent gradient */
+/* MENU PANEL */
 .menu-content {
   width: 480px;
   height: 100vh;
@@ -79,21 +79,21 @@ body {
     rgba(7, 17, 17, 0.7),
     rgba(0, 0, 0, 0.85)
   );
+  border-right: 1px solid rgba(255, 255, 255, 0.25);
   padding: 80px 60px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
+  position: relative;
   cursor: default;
-  border-right: 1px solid rgba(255, 255, 255, 0.25);
 }
 
-/* MENU LOGO TEXT */
+/* MENU TITLE */
 .menu-content h1 {
   font-family: "Atteron", serif;
   font-size: 40px;
   letter-spacing: 8px;
   margin-bottom: 80px;
+  text-align: center;
 }
 
 /* MENU NAV */
@@ -119,15 +119,17 @@ body {
   transform: translateX(10px);
 }
 
-/* MENU LOGO ICON */
+/* MENU LOGO — EXACT POSITION */
 .menu-logo-icon img {
-  width: 80px;
-  height: 80px;
-  margin-top: 120px;
-  margin-bottom: 160px;
+  position: absolute;
+  bottom: 80px;        /* EXACT placement from bottom */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;        /* updated size */
+  height: 100px;
 }
 
-/* CONTENT PAGES */
+/* CONTENT PAGE */
 .content-page {
   width: 100%;
   height: 100vh;
@@ -179,7 +181,7 @@ body {
   border: none;
   color: white;
   cursor: pointer;
-  z-index: 200;
+  z-index: 300;
 }
 
 .close-btn:hover {
@@ -187,7 +189,7 @@ body {
   transform: rotate(90deg);
 }
 
-/* Upload Page */
+/* UPLOAD PAGE */
 .upload-page .upload-layout {
   display: flex;
   gap: 80px;
@@ -203,7 +205,6 @@ body {
 .upload-text h1 {
   font-family: "Atteron", serif;
   font-size: 42px;
-  font-weight: 400;
   letter-spacing: 6px;
   margin-bottom: 40px;
 }
@@ -211,21 +212,22 @@ body {
 .upload-text p {
   font-family: "Questrial", sans-serif;
   font-size: 20px;
-  line-height: 1.8;
-  margin-bottom: 25px;
+  line-height: 1.9;     /* improved readability */
+  margin-bottom: 28px;
   font-weight: 300;
 }
 
 .upload-text ul {
   list-style: none;
   padding-left: 0;
+  margin: 8px 0 30px 0;
 }
 
 .upload-text li {
   font-family: "Questrial", sans-serif;
   font-size: 20px;
-  line-height: 1.8;
-  margin-bottom: 20px;
+  line-height: 1.9;
+  margin-bottom: 22px;
   padding-left: 30px;
   position: relative;
   font-weight: 300;
