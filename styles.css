@@ -119,13 +119,13 @@ body {
   transform: translateX(10px);
 }
 
-/* MENU LOGO — EXACT POSITION */
+/* MENU LOGO — 100x100, 80px from bottom */
 .menu-logo-icon img {
   position: absolute;
-  bottom: 80px;        /* EXACT placement from bottom */
+  bottom: 80px;
   left: 50%;
   transform: translateX(-50%);
-  width: 100px;        /* updated size */
+  width: 100px;
   height: 100px;
 }
 
@@ -189,22 +189,33 @@ body {
   transform: rotate(90deg);
 }
 
-/* UPLOAD PAGE */
+/* UPLOAD PAGE – 2x 50% columns */
 .upload-page .upload-layout {
   display: flex;
   gap: 80px;
   position: relative;
   z-index: 1;
+  height: 100%;          /* stretch to full page height */
 }
 
+/* Left column: text */
 .upload-text {
-  flex: 1;
-  max-width: 500px;
+  flex: 1;               /* 50% of width */
 }
 
+/* Right column: form (centered) */
+.upload-form {
+  flex: 1;               /* 50% of width */
+  display: flex;
+  align-items: center;   /* vertical center */
+  justify-content: center; /* horizontal center */
+}
+
+/* Upload text styles */
 .upload-text h1 {
   font-family: "Atteron", serif;
   font-size: 42px;
+  font-weight: 400;
   letter-spacing: 6px;
   margin-bottom: 40px;
 }
@@ -212,7 +223,7 @@ body {
 .upload-text p {
   font-family: "Questrial", sans-serif;
   font-size: 20px;
-  line-height: 1.9;     /* improved readability */
+  line-height: 1.9;
   margin-bottom: 28px;
   font-weight: 300;
 }
@@ -241,13 +252,10 @@ body {
   font-size: 24px;
 }
 
-/* UPLOAD FORM */
-.upload-form {
-  flex: 1;
-  max-width: 450px;
-}
-
+/* Upload form */
 .upload-form form {
+  width: 100%;
+  max-width: 450px;
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -293,6 +301,12 @@ body {
 @media (max-width: 1024px) {
   .upload-page .upload-layout {
     flex-direction: column;
+    gap: 40px;
+  }
+
+  .upload-form {
+    align-items: flex-start;
+    justify-content: flex-start;
   }
 }
 
