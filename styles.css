@@ -65,7 +65,7 @@ body {
   position: fixed;
   inset: 0;
   display: flex;
-  background: rgba(0, 0, 0, 0.3); /* subtle darkening */
+  background: rgba(0, 0, 0, 0.3);
   cursor: pointer;
   z-index: 100;
 }
@@ -187,12 +187,12 @@ body {
   transform: rotate(90deg);
 }
 
-/* UPLOAD LAYOUT – ensure it's above the dark overlay */
+/* Upload Page */
 .upload-page .upload-layout {
   display: flex;
   gap: 80px;
   position: relative;
-  z-index: 1; /* critical: keeps form and text above ::before overlay and clickable */
+  z-index: 1;
 }
 
 .upload-text {
@@ -203,30 +203,40 @@ body {
 .upload-text h1 {
   font-family: "Atteron", serif;
   font-size: 42px;
+  font-weight: 400;
   letter-spacing: 6px;
   margin-bottom: 40px;
 }
 
-.upload-text p,
-.upload-text li {
+.upload-text p {
   font-family: "Questrial", sans-serif;
   font-size: 20px;
+  line-height: 1.8;
+  margin-bottom: 25px;
+  font-weight: 300;
 }
 
 .upload-text ul {
   list-style: none;
+  padding-left: 0;
 }
 
 .upload-text li {
+  font-family: "Questrial", sans-serif;
+  font-size: 20px;
+  line-height: 1.8;
+  margin-bottom: 20px;
   padding-left: 30px;
   position: relative;
-  margin-bottom: 20px;
+  font-weight: 300;
 }
 
 .upload-text li::before {
   content: "•";
   position: absolute;
   left: 0;
+  color: white;
+  font-size: 24px;
 }
 
 /* UPLOAD FORM */
