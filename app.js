@@ -71,7 +71,7 @@ function App() {
               and build communities.
             </p>
             <p>
-             We work with high performing artists from across the world, and
+              We work with high performing artists from across the world, and
               together we want to open intimate rooms to present narrative
               driven performances. These rooms will be a place for enjoyment,
               for great listening experiences, for musical inspiration and for
@@ -97,26 +97,63 @@ function App() {
             <div className="upload-text">
               <h1>UPLOAD YOUR MIX</h1>
               <p>Welcome, dear friend.</p>
-              <p>Before you upload your mix, there's a few things you should know:</p>
-
+              <p>
+                Before you upload your mix, there's a few things you should
+                know:
+              </p>
               <ul>
-                <li>We only care about quality and storytelling.</li>
-                <li>We don't care about followers.</li>
-                <li>You must be able to play on equipment using USB drives.</li>
-                <li>Try to keep your mix between 90–120 minutes.</li>
+                <li>
+                  We don't discriminate, we only care about quality and
+                  storytelling.
+                </li>
+                <li>We don't care about how many followers you have.</li>
+                <li>
+                  You can record on any equipment that uses a thumb drive as
+                  it's source. The only reason for this is that we need to know
+                  that you can play on any equipment provided at an event.
+                </li>
+                <li>Try to keep your mix between 90 - 120 minutes.</li>
                 <li>Record in .wav if possible.</li>
+                <li>
+                  Some keywords to keep in mind: Story driven, warm, deep,
+                  groovy, beautiful, organic, real.
+                </li>
               </ul>
-
-              <p>Keywords: warm, deep, groovy, organic, story-driven.</p>
+              <p>
+                Some keywords to keep in mind: Story driven, warm, deep, groovy,
+                beautiful, organic, real.
+              </p>
             </div>
 
             <div className="upload-form">
               <form action="https://formspree.io/f/mzzwdyye" method="POST">
-                <input name="artist" type="text" placeholder="DJ / Artist Name" required />
-                <input name="email" type="email" placeholder="Email" required />
-                <input name="mix_url" type="url" placeholder="Mix URL" required />
-                <input name="location" type="text" placeholder="Where do you live?" />
-                <textarea name="notes" placeholder="Notes about your mix..."></textarea>
+                <input
+                  name="artist"
+                  type="text"
+                  placeholder="DJ / Artist Name"
+                  required
+                />
+                <input
+                  name="email"
+                  type="email"
+                  placeholder="Email"
+                  required
+                />
+                <input
+                  name="mix_url"
+                  type="url"
+                  placeholder="Mix URL"
+                  required
+                />
+                <input
+                  name="location"
+                  type="text"
+                  placeholder="Where do you live?"
+                />
+                <textarea
+                  name="notes"
+                  placeholder="Notes about your mix..."
+                ></textarea>
                 <button type="submit">SUBMIT</button>
               </form>
             </div>
@@ -124,7 +161,7 @@ function App() {
         </div>
       )}
 
-      {/* MIXED SERIES – UPDATED COPY */}
+      {/* MIXED SERIES */}
       {currentPage === "mixed-series" && (
         <div className="content-page">
           <button className="close-btn" onClick={goHome}>✕</button>
@@ -146,7 +183,7 @@ function App() {
               qualify DJs for those spaces.
             </p>
             <p>
-             Our network of producers and DJs has grown big over the years, so
+              Our network of producers and DJs has grown big over the years, so
               finding a venue near you should be possible if we feel like your
               mix has the sound we're looking for.
             </p>
