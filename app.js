@@ -95,27 +95,18 @@ function App() {
             <div className="page-content">
               <h1>ABOUT US</h1>
               <p>
-                We're a borderless DJ collective built around organic- and melodic
-                house music.
+               Elsewhere is a borderless DJ collective built around organic and melodic house. 
+               We surface narrative-driven mixes from artists worldwide and open small, dedicated 
+               rooms where listeners can hear stories, find inspiration, and connect.
               </p>
               <p>
-                Our goal is to surface high-level, narrative-driven mixes from DJs
-                around the world and give them a platform to present their stories
-                and build communities.
+               The name reflects the core idea: our sound isn’t tied to one place or scene, it comes from 
+               distant influences and the artists who carry them.
               </p>
               <p>
-                We work with high performing artists from across the world, and
-                together we want to open intimate rooms to present narrative
-                driven performances. These rooms will be a place for enjoyment,
-                for great listening experiences, for musical inspiration and for
-                new friends to meet and build communities.
-              </p>
-              <p>
-                We chose the name Elsewhere because nothing we do is confined to
-                one place, one scene, or one lineage. Our sound doesn't come from
-                any local circuit - it comes from elsewhere. From distant
-                influences, foreign cultures, and from artists whose work deserves
-                a wider horizon.
+               We work with high performing artists from across the world, and together we want to 
+               present narrative driven performances and give talented DJs the opportunity to share 
+               their stories through music. 
               </p>
             </div>
           </div>
