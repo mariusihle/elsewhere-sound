@@ -21,7 +21,7 @@ html,
 body {
   height: 100%;
   overscroll-behavior: none;
-  background-color: #000; /* kills the white stripes on edges */
+  background-color: #000; /* prevents white lines at edges */
 }
 
 body {
@@ -115,7 +115,7 @@ body {
   transition: opacity 1s ease;
 }
 
-/* Text/logo fade with slight delay for a nicer feel */
+/* Text/logo fade with slight delay */
 .menu-content h1,
 .menu-content nav,
 .menu-logo-icon {
@@ -184,13 +184,15 @@ body {
 /* CONTENT PAGE */
 .content-page {
   width: 100%;
-  min-height: 100vh;
+  height: 100vh; /* fixed viewport height; internal scroll */
   padding: 80px;
   background-image: url("https://i.imgur.com/x0Ck7aA.jpeg");
   background-size: cover;
   background-position: center;
   position: relative;
   overflow-y: auto;
+  -webkit-overflow-scrolling: touch; /* iOS smooth scroll */
+  overscroll-behavior: contain;      /* keep scroll inside this element */
 }
 
 .content-page::before {
@@ -346,7 +348,7 @@ body {
   border-radius: 8px;
 }
 
-/* KOKOPELLI FIXED LOGO */
+/* KOKOPELLI FIXED LOGO (desktop baseline) */
 .kokopelli-fixed-logo {
   position: fixed;
   bottom: 80px;
@@ -460,31 +462,3 @@ body {
 
   .upload-form form {
     max-width: 100%;
-  }
-
-  .upload-form button {
-    width: 100%;
-  }
-
-  /* MOBILE KOKOPELLI SIZE + CENTERED BOTTOM */
-  .kokopelli-fixed-logo {
-    bottom: 80px;
-    left: 50%;
-    right: auto;
-    transform: translateX(-50%);
-    width: 189px; /* 1.5x mobile */
-  }
-
-  .kokopelli-fixed-logo img {
-    width: 100%;
-  }
-
-  /* Hide logo unless home page and menu is closed */
-  .kokopelli-fixed-logo.state-other {
-    display: none;
-  }
-
-  .kokopelli-fixed-logo.state-home-open {
-    display: block;
-  }
-}
