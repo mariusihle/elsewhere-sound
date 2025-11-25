@@ -40,7 +40,7 @@ body {
 .home-page {
   width: 100%;
   height: 100%;
-  background-image: url("https://i.imgur.com/JijqSq4.jpeg");
+  background-image: url("https://i.imgur.com/x0Ck7aA.jpeg");
   background-size: cover;
   background-position: center;
   position: relative;
@@ -60,6 +60,14 @@ body {
   justify-content: space-between;
   cursor: pointer;
   z-index: 100;
+
+  opacity: 1;
+  transition: opacity 0.4s ease;
+}
+
+.hamburger-menu.hidden {
+  opacity: 0;
+  pointer-events: none;
 }
 
 .hamburger-menu div {
@@ -177,18 +185,36 @@ body {
   display: none; /* overridden in mobile breakpoint */
 }
 
-/* CONTENT PAGES */
+/* CONTENT PAGES – fade in/out */
+@keyframes contentFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 .content-page {
   width: 100%;
-  height: 100vh;                 /* viewport height */
+  min-height: 100vh;              /* overlay covers full scroll height */
   padding: 80px;
   background-image: url("https://i.imgur.com/x0Ck7aA.jpeg");
   background-size: cover;
   background-position: center;
   position: relative;
 
-  overflow-y: auto;              /* internal scroll */
-  -webkit-overflow-scrolling: touch; /* smooth iOS scroll */
+  overflow-y: auto;               /* internal scroll, not whole screen */
+  -webkit-overflow-scrolling: touch;
+
+  opacity: 0;
+  animation: contentFadeIn 1s forwards; /* 1s fade in on mount */
+}
+
+.content-page.closing {
+  animation: none;
+  opacity: 0;
+  transition: opacity 1s ease;    /* 1s fade out when .closing is added */
 }
 
 .content-page::before {
@@ -232,11 +258,12 @@ body {
   color: white;
   cursor: pointer;
   z-index: 300;
+  transition: transform 0.3s ease, color 0.3s ease;
 }
 
 .close-btn:hover {
   color: #bbb;
-  transform: rotate(90deg);
+  transform: rotate(90deg); /* 90° twist */
 }
 
 /* UPLOAD PAGE LAYOUT */
@@ -414,6 +441,12 @@ body {
     font-size: 26px;
     cursor: pointer;
     z-index: 10;
+    transition: transform 0.3s ease, color 0.3s ease;
+  }
+
+  .menu-close-btn:hover {
+    color: #bbb;
+    transform: rotate(90deg);
   }
 
   /* Content pages on mobile */
@@ -472,7 +505,7 @@ body {
     transform: translateX(-50%);
     width: 189px;           /* 1.5x mobile */
     opacity: 1;
-    transition: opacity 0.4s ease; /* fast fade */
+    transition: opacity 0.4s ease;
   }
 
   .kokopelli-fixed-logo img {
