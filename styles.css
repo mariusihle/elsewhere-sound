@@ -16,7 +16,7 @@
   box-sizing: border-box;
 }
 
-/* Lock viewport, no global scroll or bounce */
+/* Lock viewport, no global scroll */
 html,
 body {
   height: 100%;
@@ -43,7 +43,7 @@ body {
   background-size: cover;
   background-position: center;
   position: relative;
-  overscroll-behavior: none; /* kill pull/bounce on home */
+  overscroll-behavior: none; /* kill bounce on home */
 }
 
 /* HAMBURGER */
@@ -68,16 +68,31 @@ body {
   background: white;
 }
 
-/* MENU OVERLAY */
+/* MENU OVERLAY – always mounted, animated open/close */
 .menu-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.3);
   display: flex;
   cursor: pointer;
   z-index: 200;
-  overscroll-behavior: none; /* no bounce while menu open */
-  touch-action: none;         /* prevent drag scrolling under overlay */
+
+  /* animation base */
+  opacity: 0;
+  pointer-events: none;
+  background: rgba(0, 0, 0, 0.3);
+  transition: opacity 0.3s ease;
+}
+
+.menu-overlay.open {
+  opacity: 1;
+  pointer-events: auto;
+  overscroll-behavior: none;
+  touch-action: none; /* prevent drag-scroll under overlay on mobile */
+}
+
+.menu-overlay.closed {
+  opacity: 0;
+  pointer-events: none;
 }
 
 /* MENU PANEL */
@@ -89,12 +104,23 @@ body {
     rgba(7, 17, 17, 0.7),
     rgba(0, 0, 0, 0.85)
   );
-  border-right: 1px solid rgba(255, 255, 255, 0.25);
+  /* border-right removed to get rid of tiny line */
   padding: 80px 60px;
   display: flex;
   flex-direction: column;
   position: relative;
   cursor: default;
+
+  /* slide + fade animation for the panel itself */
+  transform: translateX(-40px);
+  opacity: 0;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+/* When overlay is open, slide panel into view */
+.menu-overlay.open .menu-content {
+  transform: translateX(0);
+  opacity: 1;
 }
 
 /* MENU TITLE */
@@ -139,6 +165,11 @@ body {
   height: 100px;
 }
 
+/* MOBILE-ONLY CLOSE BUTTON INSIDE MENU */
+.menu-close-btn {
+  display: none; /* hidden on desktop by default */
+}
+
 /* CONTENT PAGE */
 .content-page {
   width: 100%;
@@ -179,7 +210,7 @@ body {
   margin-bottom: 25px;
 }
 
-/* CLOSE BUTTON */
+/* CLOSE BUTTON (for content pages) */
 .close-btn {
   position: absolute;
   top: 80px;
@@ -205,7 +236,6 @@ body {
   gap: 80px;
   position: relative;
   z-index: 1;
-  /* no forced height, let .content-page control it */
 }
 
 /* Upload text side */
@@ -359,6 +389,22 @@ body {
     width: 80px;
     height: 80px;
     bottom: 40px;
+  }
+
+  /* Mobile-only close button in the top-right of the menu */
+  .menu-close-btn {
+    display: block;
+    position: absolute;
+    top: 30px;
+    right: 24px;
+    width: 30px;
+    height: 30px;
+    border: none;
+    background: transparent;
+    color: white;
+    font-size: 26px;
+    cursor: pointer;
+    z-index: 10;
   }
 
   .content-page {
