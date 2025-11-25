@@ -355,6 +355,7 @@ body {
   padding: 15px 20px;
   font-family: "Questrial", sans-serif;
   font-size: 18px;
+  border-radius: 10px;
 }
 
 .upload-form textarea {
@@ -369,6 +370,7 @@ body {
   font-size: 18px;
   letter-spacing: 3px;
   cursor: pointer;
+  border-radius: 10px;
 }
 
 .upload-form button:hover {
