@@ -66,12 +66,14 @@ function App() {
 
           <nav>
             <button onClick={() => navigateTo("about")}>ABOUT US</button>
-            <button onClick={() => navigateTo("upload")}>
-              UPLOAD YOUR MIX
-            </button>
+            {/* SWAPPED ORDER START */}
             <button onClick={() => navigateTo("mixed-series")}>
               MIXED SERIES
             </button>
+            <button onClick={() => navigateTo("upload")}>
+              UPLOAD YOUR MIX
+            </button>
+            {/* SWAPPED ORDER END */}
             <button onClick={() => navigateTo("events")}>EVENTS</button>
             <button onClick={() => navigateTo("artists")}>ARTISTS</button>
             <button onClick={() => navigateTo("venues")}>VENUES</button>
@@ -172,7 +174,7 @@ function App() {
                       name="mix_url"
                       type="url"
                       placeholder="Mix URL"
-                      required
+                      required"
                     />
                     <input
                       name="location"
