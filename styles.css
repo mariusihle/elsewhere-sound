@@ -19,7 +19,6 @@
 body {
   font-family: "Atteron", sans-serif;
   color: white;
-  /* allow vertical scrolling, only hide horizontal */
   overflow-x: hidden;
 }
 
@@ -33,7 +32,7 @@ body {
 .home-page {
   width: 100%;
   height: 100%;
-  background-image: url("https://i.imgur.com/x0Ck7aA.jpeg");
+  background-image: url("https://i.imgur.com/JijqSq4.jpeg");
   background-size: cover;
   background-position: center;
   position: relative;
@@ -133,13 +132,12 @@ body {
 /* CONTENT PAGE */
 .content-page {
   width: 100%;
-  min-height: 100vh; /* allow page to grow with content */
+  min-height: 100vh;
   padding: 80px;
   background-image: url("https://i.imgur.com/x0Ck7aA.jpeg");
   background-size: cover;
   background-position: center;
   position: relative;
-  /* no inner scroll; page scrolls instead so overlay follows */
 }
 
 .content-page::before {
@@ -190,7 +188,7 @@ body {
   transform: rotate(90deg);
 }
 
-/* UPLOAD PAGE – 2x 50% columns on desktop */
+/* UPLOAD PAGE LAYOUT */
 .upload-page .upload-layout {
   display: flex;
   gap: 80px;
@@ -199,20 +197,11 @@ body {
   height: 100%;
 }
 
-/* Left column: text */
+/* Upload text side */
 .upload-text {
   flex: 1;
 }
 
-/* Right column: form (centered) */
-.upload-form {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* Upload text styles */
 .upload-text h1 {
   font-family: "Atteron", serif;
   font-size: 42px;
@@ -253,7 +242,14 @@ body {
   font-size: 24px;
 }
 
-/* Upload form */
+/* Upload form side */
+.upload-form {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .upload-form form {
   width: 100%;
   max-width: 450px;
@@ -290,7 +286,7 @@ body {
   background: #ddd;
 }
 
-/* SOUNDCLOUD */
+/* SOUNDCLOUD CONTAINER */
 .soundcloud-container {
   margin-top: 40px;
   padding: 30px;
@@ -298,21 +294,19 @@ body {
   border-radius: 8px;
 }
 
-/* KOKOPELLI TRANSPARENT FIXED LOGO */
-/* Desktop defaults: bottom-right, always visible, above everything */
+/* FIXED KOKOPELLI LOGO (desktop default) */
 .kokopelli-fixed-logo {
   position: fixed;
   bottom: 80px;
   right: 80px;
-  width: 126px;
+  width: 315px; /* 2.5x size */
   height: auto;
-  z-index: 500; /* above menu + overlay */
+  z-index: 500; /* always on top */
 }
 
 .kokopelli-fixed-logo img {
   width: 100%;
   height: auto;
-  display: block;
 }
 
 /* TABLET BREAKPOINT */
@@ -328,13 +322,12 @@ body {
 
 /* PHONE BREAKPOINT */
 @media (max-width: 768px) {
-  /* Home */
+
   .hamburger-menu {
     top: 40px;
     left: 30px;
   }
 
-  /* Menu: full width on phone */
   .menu-content {
     width: 100%;
     padding: 60px 30px;
@@ -357,18 +350,12 @@ body {
     bottom: 40px;
   }
 
-  /* Pages */
   .content-page {
     padding: 40px 24px;
   }
 
-  .page-content {
-    max-width: 100%;
-  }
-
   .page-content h1 {
     font-size: 30px;
-    letter-spacing: 4px;
     margin-bottom: 28px;
   }
 
@@ -384,7 +371,6 @@ body {
     font-size: 26px;
   }
 
-  /* Upload: stack vertically on phone */
   .upload-page .upload-layout {
     flex-direction: column;
     gap: 32px;
@@ -403,27 +389,15 @@ body {
     line-height: 1.7;
   }
 
-  .upload-form {
-    align-items: stretch;
-    justify-content: flex-start;
-  }
-
   .upload-form form {
     max-width: 100%;
   }
 
-  .upload-form input,
-  .upload-form textarea {
-    font-size: 16px;
-    padding: 12px 16px;
-  }
-
   .upload-form button {
     width: 100%;
-    text-align: center;
   }
 
-  /* Kokopelli logo: center bottom on mobile, only on home when menu closed */
+  /* MOBILE Kokopelli positioning */
   .kokopelli-fixed-logo {
     bottom: 80px;
     left: 50%;
@@ -431,6 +405,12 @@ body {
     transform: translateX(-50%);
   }
 
+  /* Mobile size: 1.5x → 189px */
+  .kokopelli-fixed-logo img {
+    width: 189px;
+  }
+
+  /* Hide logo unless on home and menu closed */
   .kokopelli-fixed-logo.state-other {
     display: none;
   }
