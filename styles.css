@@ -35,7 +35,7 @@ body {
   width: 100vw;
   height: 100vh;
   position: relative;
-  background-image: url("https://i.imgur.com/JijqSq4.jpeg");
+  background-image: url("https://i.imgur.com/x0Ck7aA.jpeg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -236,6 +236,11 @@ body {
 .page-content {
   max-width: 900px;
   width: 100%;
+}
+
+/* Upload page: allow full width so 50/50 layout works */
+.upload-page .page-content {
+  max-width: 100%;
 }
 
 .page-content h1 {
