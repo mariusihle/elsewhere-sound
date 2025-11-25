@@ -19,13 +19,13 @@
 body {
   font-family: "Atteron", sans-serif;
   color: white;
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
 /* APP */
 .app {
   width: 100vw;
-  min-height: 100vh;
+  height: 100vh;
 }
 
 /* HOME PAGE */
@@ -132,15 +132,15 @@ body {
 /* CONTENT PAGE */
 .content-page {
   width: 100%;
-  min-height: 100vh;              /* was height: 100vh */
+  height: 100vh;
   padding: 80px;
+  overflow-y: auto;
   background-image: url("https://i.imgur.com/x0Ck7aA.jpeg");
   background-size: cover;
   background-position: center;
   position: relative;
 }
 
-/* Dark overlay now follows full content height */
 .content-page::before {
   content: "";
   position: absolute;
@@ -195,6 +195,7 @@ body {
   gap: 80px;
   position: relative;
   z-index: 1;
+  height: 100%;
 }
 
 /* Left column: text */
@@ -369,6 +370,7 @@ body {
   .upload-page .upload-layout {
     flex-direction: column;
     gap: 32px;
+    height: auto;
     margin-top: 40px;
   }
 
