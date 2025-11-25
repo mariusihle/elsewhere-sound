@@ -15,7 +15,7 @@ function App() {
     setMenuOpen(false);
   };
 
-  // Used to control mobile visibility of Kokopelli text logo
+  // Control Kokopellitransparent on mobile home only
   const isHomeMainVisible = currentPage === "home" && !menuOpen;
 
   return (
@@ -31,37 +31,50 @@ function App() {
         </div>
       )}
 
-      {/* Menu Overlay */}
-      {menuOpen && (
-        <div className="menu-overlay" onClick={() => setMenuOpen(false)}>
-          <div
-            className="menu-content"
-            onClick={(e) => e.stopPropagation()}
+      {/* Menu Overlay (always rendered, animated open/close) */}
+      <div
+        className={`menu-overlay ${menuOpen ? "open" : "closed"}`}
+        onClick={() => menuOpen && setMenuOpen(false)}
+      >
+        <div
+          className="menu-content"
+          onClick={(e) => e.stopPropagation()}
+        >
+          {/* Mobile-only close button (hidden on desktop via CSS) */}
+          <button
+            className="menu-close-btn"
+            onClick={() => setMenuOpen(false)}
           >
-            <h1>ElsewheRe</h1>
+            ✕
+          </button>
 
-            <nav>
-              <button onClick={() => navigateTo("about")}>ABOUT US</button>
-              <button onClick={() => navigateTo("upload")}>UPLOAD YOUR MIX</button>
-              <button onClick={() => navigateTo("mixed-series")}>
-                MIXED SERIES
-              </button>
-              <button onClick={() => navigateTo("events")}>EVENTS</button>
-              <button onClick={() => navigateTo("artists")}>ARTISTS</button>
-              <button onClick={() => navigateTo("venues")}>VENUES</button>
-            </nav>
+          <h1>ElsewheRe</h1>
 
-            <div className="menu-logo-icon">
-              <img src="Kokopelli.svg" alt="Kokopelli" />
-            </div>
+          <nav>
+            <button onClick={() => navigateTo("about")}>ABOUT US</button>
+            <button onClick={() => navigateTo("upload")}>
+              UPLOAD YOUR MIX
+            </button>
+            <button onClick={() => navigateTo("mixed-series")}>
+              MIXED SERIES
+            </button>
+            <button onClick={() => navigateTo("events")}>EVENTS</button>
+            <button onClick={() => navigateTo("artists")}>ARTISTS</button>
+            <button onClick={() => navigateTo("venues")}>VENUES</button>
+          </nav>
+
+          <div className="menu-logo-icon">
+            <img src="Kokopelli.svg" alt="Kokopelli" />
           </div>
         </div>
-      )}
+      </div>
 
       {/* ABOUT US */}
       {currentPage === "about" && (
         <div className="content-page">
-          <button className="close-btn" onClick={goHome}>✕</button>
+          <button className="close-btn" onClick={goHome}>
+            ✕
+          </button>
           <div className="page-content">
             <h1>ABOUT US</h1>
             <p>
@@ -94,7 +107,9 @@ function App() {
       {/* UPLOAD */}
       {currentPage === "upload" && (
         <div className="content-page upload-page">
-          <button className="close-btn" onClick={goHome}>✕</button>
+          <button className="close-btn" onClick={goHome}>
+            ✕
+          </button>
 
           <div className="upload-layout">
             <div className="upload-text">
@@ -167,12 +182,12 @@ function App() {
       {/* MIXED SERIES */}
       {currentPage === "mixed-series" && (
         <div className="content-page">
-          <button className="close-btn" onClick={goHome}>✕</button>
+          <button className="close-btn" onClick={goHome}>
+            ✕
+          </button>
           <div className="page-content">
             <h1>ELSEWHERE MIXED SERIES</h1>
-            <p>
-              Welcome to the Elsewhere mixed series.
-            </p>
+            <p>Welcome to the Elsewhere mixed series.</p>
             <p>
               As the world grows more connected, the music scene gets more
               saturated, and it's getting harder to find high quality
@@ -204,7 +219,9 @@ function App() {
       {/* EVENTS */}
       {currentPage === "events" && (
         <div className="content-page">
-          <button className="close-btn" onClick={goHome}>✕</button>
+          <button className="close-btn" onClick={goHome}>
+            ✕
+          </button>
           <div className="page-content">
             <h1>EVENTS</h1>
             <p>We're currently collecting stories...</p>
@@ -215,7 +232,9 @@ function App() {
       {/* ARTISTS */}
       {currentPage === "artists" && (
         <div className="content-page">
-          <button className="close-btn" onClick={goHome}>✕</button>
+          <button className="close-btn" onClick={goHome}>
+            ✕
+          </button>
           <div className="page-content">
             <h1>ARTISTS</h1>
             <p>We're currently collecting stories...</p>
@@ -226,7 +245,9 @@ function App() {
       {/* VENUES */}
       {currentPage === "venues" && (
         <div className="content-page">
-          <button className="close-btn" onClick={goHome}>✕</button>
+          <button className="close-btn" onClick={goHome}>
+            ✕
+          </button>
           <div className="page-content">
             <h1>VENUES</h1>
             <p>SHACK15 | San Francisco</p>
@@ -235,8 +256,8 @@ function App() {
       )}
 
       {/* Kokopelli transparent logo – fixed, always on top.
-          Desktop: always bottom-right.
-          Mobile: only visible when home is visible and menu is closed. */}
+          Desktop: bottom-right.
+          Mobile: centered bottom, only on home when menu closed. */}
       <div
         className={
           "kokopelli-fixed-logo " +
