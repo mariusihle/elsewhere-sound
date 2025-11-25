@@ -4,19 +4,26 @@ const { useState } = React;
 function App() {
   const [currentPage, setCurrentPage] = useState("home");
   const [menuOpen, setMenuOpen] = useState(false);
+  const [isClosingPage, setIsClosingPage] = useState(false);
 
   const navigateTo = (page) => {
     setCurrentPage(page);
     setMenuOpen(false);
+    setIsClosingPage(false);
   };
 
-  // When closing a content page, go to home and show the menu
-  const goHome = () => {
-    setCurrentPage("home");
-    setMenuOpen(true);
+  // Close from content page: fade out, then go home with menu open
+  const closeContentPage = () => {
+    if (isClosingPage) return; // avoid double-trigger
+    setIsClosingPage(true);
+    setTimeout(() => {
+      setIsClosingPage(false);
+      setCurrentPage("home");
+      setMenuOpen(true);
+    }, 1000); // must match CSS fade-out duration
   };
 
-  // Kokopelli text logo visible only on home when menu is closed (mobile)
+  // For Kokopelli logo state
   const isHomeMainVisible = currentPage === "home" && !menuOpen;
 
   return (
@@ -24,7 +31,10 @@ function App() {
       {/* Home Page */}
       {currentPage === "home" && (
         <div className="home-page">
-          <button className="hamburger-menu" onClick={() => setMenuOpen(true)}>
+          <button
+            className={`hamburger-menu ${menuOpen ? "hidden" : ""}`}
+            onClick={() => setMenuOpen(true)}
+          >
             <div></div>
             <div></div>
             <div></div>
@@ -32,7 +42,7 @@ function App() {
         </div>
       )}
 
-      {/* Menu Overlay (always rendered, animated open/close) */}
+      {/* Menu Overlay (always rendered, controlled by menuOpen) */}
       <div
         className={`menu-overlay ${menuOpen ? "open" : "closed"}`}
         onClick={() => menuOpen && setMenuOpen(false)}
@@ -41,7 +51,7 @@ function App() {
           className="menu-content"
           onClick={(e) => e.stopPropagation()}
         >
-          {/* Mobile-only close button (hidden on desktop via CSS) */}
+          {/* Mobile-only close button */}
           <button
             className="menu-close-btn"
             onClick={() => setMenuOpen(false)}
@@ -72,8 +82,8 @@ function App() {
 
       {/* ABOUT US */}
       {currentPage === "about" && (
-        <div className="content-page">
-          <button className="close-btn" onClick={goHome}>
+        <div className={`content-page ${isClosingPage ? "closing" : ""}`}>
+          <button className="close-btn" onClick={closeContentPage}>
             ✕
           </button>
           <div className="page-content">
@@ -107,8 +117,12 @@ function App() {
 
       {/* UPLOAD */}
       {currentPage === "upload" && (
-        <div className="content-page upload-page">
-          <button className="close-btn" onClick={goHome}>
+        <div
+          className={`content-page upload-page ${
+            isClosingPage ? "closing" : ""
+          }`}
+        >
+          <button className="close-btn" onClick={closeContentPage}>
             ✕
           </button>
 
@@ -182,8 +196,8 @@ function App() {
 
       {/* MIXED SERIES */}
       {currentPage === "mixed-series" && (
-        <div className="content-page">
-          <button className="close-btn" onClick={goHome}>
+        <div className={`content-page ${isClosingPage ? "closing" : ""}`}>
+          <button className="close-btn" onClick={closeContentPage}>
             ✕
           </button>
           <div className="page-content">
@@ -219,8 +233,8 @@ function App() {
 
       {/* EVENTS */}
       {currentPage === "events" && (
-        <div className="content-page">
-          <button className="close-btn" onClick={goHome}>
+        <div className={`content-page ${isClosingPage ? "closing" : ""}`}>
+          <button className="close-btn" onClick={closeContentPage}>
             ✕
           </button>
           <div className="page-content">
@@ -232,8 +246,8 @@ function App() {
 
       {/* ARTISTS */}
       {currentPage === "artists" && (
-        <div className="content-page">
-          <button className="close-btn" onClick={goHome}>
+        <div className={`content-page ${isClosingPage ? "closing" : ""}`}>
+          <button className="close-btn" onClick={closeContentPage}>
             ✕
           </button>
           <div className="page-content">
@@ -245,8 +259,8 @@ function App() {
 
       {/* VENUES */}
       {currentPage === "venues" && (
-        <div className="content-page">
-          <button className="close-btn" onClick={goHome}>
+        <div className={`content-page ${isClosingPage ? "closing" : ""}`}>
+          <button className="close-btn" onClick={closeContentPage}>
             ✕
           </button>
           <div className="page-content">
