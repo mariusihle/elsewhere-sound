@@ -16,13 +16,13 @@
   box-sizing: border-box;
 }
 
-/* Root – lock viewport and avoid bounce */
+/* Root – viewport never scrolls */
 html,
 body {
   height: 100%;
   background-color: #000;
-  overflow: hidden;           /* viewport never scrolls */
-  overscroll-behavior: none;  /* reduce Safari rubber-banding */
+  overflow: hidden;           /* lock screen */
+  overscroll-behavior: none;  /* reduce Safari bounce */
 }
 
 body {
@@ -30,21 +30,23 @@ body {
   color: white;
 }
 
-/* APP */
+/* APP – single global background that NEVER moves or disappears */
 .app {
   width: 100vw;
   height: 100vh;
-  background-color: #000; /* fallback behind background image */
-}
-
-/* HOME PAGE */
-.home-page {
-  width: 100%;
-  height: 100%;
-  background-image: url("https://i.imgur.com/JijqSq4.jpeg");
+  position: relative;
+  background-image: url("https://i.imgur.com/x0Ck7aA.jpeg");
   background-size: cover;
   background-position: center;
-  position: relative;
+  background-repeat: no-repeat;
+}
+
+/* HOME PAGE – just a transparent layer on top of background */
+.home-page {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
 }
 
 /* HAMBURGER */
@@ -77,7 +79,7 @@ body {
   background: white;
 }
 
-/* MENU OVERLAY – always mounted, 1s fade */
+/* MENU OVERLAY – fixed, covers screen, only this fades for menu */
 .menu-overlay {
   position: fixed;
   inset: 0;
@@ -87,7 +89,7 @@ body {
 
   opacity: 0;
   pointer-events: none;
-  background: rgba(0, 0, 0, 0.3);
+  background: rgba(0, 0, 0, 0.3); /* overlay, NOT background image */
   transition: opacity 1s ease;
 }
 
@@ -101,7 +103,7 @@ body {
   pointer-events: none;
 }
 
-/* MENU PANEL (no slide, fade only) */
+/* MENU PANEL */
 .menu-content {
   width: 480px;
   height: 100vh;
@@ -120,7 +122,7 @@ body {
   transition: opacity 1s ease;
 }
 
-/* Staggered fade for inner elements */
+/* Staggered fade for menu inner elements */
 .menu-content h1,
 .menu-content nav,
 .menu-logo-icon {
@@ -148,11 +150,12 @@ body {
   text-align: center;
 }
 
-/* MENU NAV */
+/* MENU NAV (no scroll) */
 .menu-content nav {
   display: flex;
   flex-direction: column;
   gap: 35px;
+  overflow: hidden; /* menu never scrolls */
 }
 
 .menu-content nav button {
@@ -183,10 +186,16 @@ body {
 
 /* MOBILE-ONLY CLOSE BUTTON INSIDE MENU */
 .menu-close-btn {
-  display: none; /* overridden in mobile breakpoint */
+  display: none; /* enabled in mobile breakpoint */
 }
 
-/* CONTENT PAGES – fade in + fade out */
+/* CONTENT PAGES
+   - Background image: on .app (fixed)
+   - Dark overlay: fixed in this layer
+   - Only inner text/forms scroll
+*/
+
+/* Fade-in keyframe */
 @keyframes contentFadeIn {
   from {
     opacity: 0;
@@ -197,39 +206,38 @@ body {
 }
 
 .content-page {
-  width: 100%;
-  min-height: 100vh;              /* overlay covers full scroll height */
-  padding: 80px;
-  background-image: url("https://i.imgur.com/x0Ck7aA.jpeg");
-  background-size: cover;
-  background-position: center;
-  position: relative;
+  position: fixed;   /* fixed to viewport */
+  inset: 0;
+  z-index: 150;
 
-  overflow-y: auto;               /* internal scroll, not whole screen */
-  -webkit-overflow-scrolling: touch;
+  padding: 80px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+
+  /* Dark overlay, fixed, in this layer */
+  background: rgba(0, 0, 0, 0.75);
 
   opacity: 0;
-  animation: contentFadeIn 1s forwards; /* 1s fade in on mount */
+  animation: contentFadeIn 1s forwards; /* 1s fade IN */
 }
 
+/* Fade OUT on close: overlay + text fade, background stays */
 .content-page.closing {
   animation: none;
   opacity: 0;
-  transition: opacity 1s ease;    /* 1s fade out when .closing is added */
+  transition: opacity 1s ease;
 }
 
-.content-page::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.75);
-  z-index: 0;
-}
-
+/* Inner scroll container: ONLY this moves */
 .page-content {
   position: relative;
   z-index: 1;
   max-width: 900px;
+  width: 100%;
+  height: 100%;                   /* fill viewport height */
+  overflow-y: auto;               /* inner scroll only */
+  -webkit-overflow-scrolling: touch;
 }
 
 .page-content h1 {
@@ -246,9 +254,9 @@ body {
   margin-bottom: 25px;
 }
 
-/* CLOSE BUTTON (content pages) */
+/* CLOSE BUTTON – fixed relative to viewport, won't move on scroll */
 .close-btn {
-  position: absolute;
+  position: fixed;
   top: 80px;
   right: 80px;
   width: 30px;
@@ -264,7 +272,7 @@ body {
 
 .close-btn:hover {
   color: #bbb;
-  transform: rotate(90deg); /* 90° twist */
+  transform: rotate(90deg);
 }
 
 /* UPLOAD PAGE LAYOUT */
@@ -372,7 +380,7 @@ body {
   border-radius: 8px;
 }
 
-/* KOKOPELLI FIXED LOGO – desktop baseline */
+/* KOKOPELLI FIXED LOGO – desktop */
 .kokopelli-fixed-logo {
   position: fixed;
   bottom: 80px;
