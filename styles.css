@@ -41,7 +41,7 @@ body {
   background-repeat: no-repeat;
 }
 
-/* HOME PAGE – just a transparent layer on top of background */
+/* HOME PAGE – transparent layer on top of background */
 .home-page {
   position: absolute;
   inset: 0;
@@ -189,13 +189,8 @@ body {
   display: none; /* enabled in mobile breakpoint */
 }
 
-/* CONTENT PAGES
-   - Background image: on .app (fixed)
-   - Dark overlay: fixed in this layer
-   - Only inner text/forms scroll
-*/
-
-/* Fade-in keyframe */
+/* CONTENT PAGES */
+/* Fixed overlay layer, non-scrollable */
 @keyframes contentFadeIn {
   from {
     opacity: 0;
@@ -206,16 +201,15 @@ body {
 }
 
 .content-page {
-  position: fixed;   /* fixed to viewport */
+  position: fixed;
   inset: 0;
   z-index: 150;
 
-  padding: 80px;
   display: flex;
-  align-items: flex-start;
+  align-items: stretch;
   justify-content: flex-start;
 
-  /* Dark overlay, fixed, in this layer */
+  /* Dark overlay, fixed */
   background: rgba(0, 0, 0, 0.75);
 
   opacity: 0;
@@ -229,15 +223,19 @@ body {
   transition: opacity 1s ease;
 }
 
-/* Inner scroll container: ONLY this moves */
+/* SCROLL CONTAINER – ONLY THIS SCROLLS */
+.content-inner {
+  flex: 1;
+  padding: 80px;
+  height: 100%;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Content inside scroll container */
 .page-content {
-  position: relative;
-  z-index: 1;
   max-width: 900px;
   width: 100%;
-  height: 100%;                   /* fill viewport height */
-  overflow-y: auto;               /* inner scroll only */
-  -webkit-overflow-scrolling: touch;
 }
 
 .page-content h1 {
@@ -397,7 +395,7 @@ body {
 
 /* TABLET BREAKPOINT */
 @media (max-width: 1024px) {
-  .content-page {
+  .content-inner {
     padding: 60px;
   }
 
@@ -459,7 +457,7 @@ body {
   }
 
   /* Content pages on mobile */
-  .content-page {
+  .content-inner {
     padding: 40px 24px;
   }
 
