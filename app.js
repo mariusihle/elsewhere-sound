@@ -36,7 +36,7 @@ function App() {
           >
             <h1>ElsewheRe</h1>
 
-            {/* UPDATED ORDER */}
+            {/* MENU ORDER */}
             <nav>
               <button onClick={() => navigateTo("about")}>ABOUT US</button>
               <button onClick={() => navigateTo("mixed-series")}>MIXED SERIES</button>
