@@ -68,7 +68,7 @@ body {
   background: white;
 }
 
-/* MENU OVERLAY – always mounted, animated open/close */
+/* MENU OVERLAY – always mounted, animated fade */
 .menu-overlay {
   position: fixed;
   inset: 0;
@@ -76,18 +76,17 @@ body {
   cursor: pointer;
   z-index: 200;
 
-  /* animation base */
   opacity: 0;
   pointer-events: none;
   background: rgba(0, 0, 0, 0.3);
-  transition: opacity 0.3s ease;
+  transition: opacity 1s ease; /* 1 second fade */
 }
 
 .menu-overlay.open {
   opacity: 1;
   pointer-events: auto;
   overscroll-behavior: none;
-  touch-action: none; /* prevent drag-scroll under overlay on mobile */
+  touch-action: none; /* prevent dragging page when menu open */
 }
 
 .menu-overlay.closed {
@@ -95,7 +94,7 @@ body {
   pointer-events: none;
 }
 
-/* MENU PANEL */
+/* MENU PANEL (no slide, fade only) */
 .menu-content {
   width: 480px;
   height: 100vh;
@@ -104,22 +103,17 @@ body {
     rgba(7, 17, 17, 0.7),
     rgba(0, 0, 0, 0.85)
   );
-  /* border-right removed to get rid of tiny line */
   padding: 80px 60px;
   display: flex;
   flex-direction: column;
   position: relative;
   cursor: default;
 
-  /* slide + fade animation for the panel itself */
-  transform: translateX(-40px);
   opacity: 0;
-  transition: transform 0.4s ease, opacity 0.4s ease;
+  transition: opacity 1s ease; /* 1 second fade */
 }
 
-/* When overlay is open, slide panel into view */
 .menu-overlay.open .menu-content {
-  transform: translateX(0);
   opacity: 1;
 }
 
@@ -155,7 +149,7 @@ body {
   transform: translateX(10px);
 }
 
-/* MENU LOGO */
+/* MENU LOGO ICON */
 .menu-logo-icon img {
   position: absolute;
   bottom: 80px;
@@ -167,19 +161,19 @@ body {
 
 /* MOBILE-ONLY CLOSE BUTTON INSIDE MENU */
 .menu-close-btn {
-  display: none; /* hidden on desktop by default */
+  display: none; /* visible only on mobile */
 }
 
 /* CONTENT PAGE */
 .content-page {
   width: 100%;
-  min-height: 100vh;         /* can grow with content */
+  min-height: 100vh;
   padding: 80px;
   background-image: url("https://i.imgur.com/x0Ck7aA.jpeg");
   background-size: cover;
   background-position: center;
   position: relative;
-  overflow-y: auto;          /* scroll only inside content page */
+  overflow-y: auto; /* scroll inside content */
 }
 
 .content-page::before {
@@ -210,7 +204,7 @@ body {
   margin-bottom: 25px;
 }
 
-/* CLOSE BUTTON (for content pages) */
+/* CLOSE BUTTON (content pages) */
 .close-btn {
   position: absolute;
   top: 80px;
@@ -246,7 +240,7 @@ body {
 .upload-text h1 {
   font-family: "Atteron", serif;
   font-size: 42px;
-  font-weight: 400;
+  letter-weight: 400;
   letter-spacing: 6px;
   margin-bottom: 40px;
 }
@@ -272,7 +266,6 @@ body {
   margin-bottom: 22px;
   padding-left: 30px;
   position: relative;
-  font-weight: 300;
 }
 
 .upload-text li::before {
@@ -327,7 +320,7 @@ body {
   background: #ddd;
 }
 
-/* SOUNDCLOUD CONTAINER */
+/* SOUNDCLOUD BLOCK */
 .soundcloud-container {
   margin-top: 40px;
   padding: 30px;
@@ -335,14 +328,14 @@ body {
   border-radius: 8px;
 }
 
-/* FIXED KOKOPELLI LOGO (desktop default) */
+/* KOKOPELLI FIXED LOGO */
 .kokopelli-fixed-logo {
   position: fixed;
   bottom: 80px;
   right: 80px;
-  width: 315px;   /* 2.5x size on desktop */
+  width: 315px; /* 2.5x desktop */
   height: auto;
-  z-index: 500;   /* always on top */
+  z-index: 500;
 }
 
 .kokopelli-fixed-logo img {
@@ -391,7 +384,7 @@ body {
     bottom: 40px;
   }
 
-  /* Mobile-only close button in the top-right of the menu */
+  /* Mobile-only close button in top-right of menu */
   .menu-close-btn {
     display: block;
     position: absolute;
@@ -399,14 +392,15 @@ body {
     right: 24px;
     width: 30px;
     height: 30px;
-    border: none;
     background: transparent;
+    border: none;
     color: white;
     font-size: 26px;
     cursor: pointer;
     z-index: 10;
   }
 
+  /* Content pages */
   .content-page {
     padding: 40px 24px;
   }
@@ -454,20 +448,20 @@ body {
     width: 100%;
   }
 
-  /* MOBILE Kokopelli positioning + size */
+  /* MOBILE KOKOPELLI SIZE + CENTERED BOTTOM */
   .kokopelli-fixed-logo {
     bottom: 80px;
     left: 50%;
     right: auto;
     transform: translateX(-50%);
-    width: 189px;     /* 1.5x size on mobile */
+    width: 189px; /* 1.5x mobile */
   }
 
   .kokopelli-fixed-logo img {
     width: 100%;
   }
 
-  /* Hide logo unless on home and menu closed */
+  /* Hide logo unless home page and menu is closed */
   .kokopelli-fixed-logo.state-other {
     display: none;
   }
