@@ -15,9 +15,6 @@ function App() {
     setMenuOpen(false);
   };
 
-  // For mobile KokopelliText logo behavior
-  const isHomeMainVisible = currentPage === "home" && !menuOpen;
-
   return (
     <div className="app">
       {/* Home Page */}
@@ -233,16 +230,6 @@ function App() {
           </div>
         </div>
       )}
-
-      {/* Global Kokopelli text logo */}
-      <div
-        className={
-          "kokopelli-text-logo " +
-          (isHomeMainVisible ? "state-home-open" : "state-other")
-        }
-      >
-        <img src="KokopelliText.svg" alt="Elsewhere" />
-      </div>
     </div>
   );
 }
