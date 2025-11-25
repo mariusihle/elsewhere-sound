@@ -16,11 +16,12 @@
   box-sizing: border-box;
 }
 
-/* Lock viewport, no global scroll */
+/* Lock viewport, no global scroll and no white edges */
 html,
 body {
   height: 100%;
   overscroll-behavior: none;
+  background-color: #000; /* kills the white stripes on edges */
 }
 
 body {
@@ -33,6 +34,7 @@ body {
 .app {
   width: 100vw;
   height: 100vh;
+  background-color: #000; /* fallback behind everything */
 }
 
 /* HOME PAGE */
@@ -43,7 +45,7 @@ body {
   background-size: cover;
   background-position: center;
   position: relative;
-  overscroll-behavior: none; /* kill bounce on home */
+  overscroll-behavior: none;
 }
 
 /* HAMBURGER */
@@ -86,7 +88,7 @@ body {
   opacity: 1;
   pointer-events: auto;
   overscroll-behavior: none;
-  touch-action: none; /* prevent dragging page when menu open */
+  touch-action: none;
 }
 
 .menu-overlay.closed {
@@ -94,7 +96,7 @@ body {
   pointer-events: none;
 }
 
-/* MENU PANEL (no slide, fade only) */
+/* MENU PANEL (fade only) */
 .menu-content {
   width: 480px;
   height: 100vh;
@@ -110,10 +112,25 @@ body {
   cursor: default;
 
   opacity: 0;
-  transition: opacity 1s ease; /* 1 second fade */
+  transition: opacity 1s ease;
 }
 
+/* Text/logo fade with slight delay for a nicer feel */
+.menu-content h1,
+.menu-content nav,
+.menu-logo-icon {
+  opacity: 0;
+  transition: opacity 1s ease 0.15s; /* delay 150ms */
+}
+
+/* When menu opens */
 .menu-overlay.open .menu-content {
+  opacity: 1;
+}
+
+.menu-overlay.open .menu-content h1,
+.menu-overlay.open .menu-content nav,
+.menu-overlay.open .menu-content .menu-logo-icon {
   opacity: 1;
 }
 
@@ -161,7 +178,7 @@ body {
 
 /* MOBILE-ONLY CLOSE BUTTON INSIDE MENU */
 .menu-close-btn {
-  display: none; /* visible only on mobile */
+  display: none; /* shown only on mobile */
 }
 
 /* CONTENT PAGE */
@@ -173,7 +190,7 @@ body {
   background-size: cover;
   background-position: center;
   position: relative;
-  overflow-y: auto; /* scroll inside content */
+  overflow-y: auto;
 }
 
 .content-page::before {
@@ -240,7 +257,7 @@ body {
 .upload-text h1 {
   font-family: "Atteron", serif;
   font-size: 42px;
-  letter-weight: 400;
+  font-weight: 400;
   letter-spacing: 6px;
   margin-bottom: 40px;
 }
@@ -266,6 +283,7 @@ body {
   margin-bottom: 22px;
   padding-left: 30px;
   position: relative;
+  font-weight: 300;
 }
 
 .upload-text li::before {
