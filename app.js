@@ -95,18 +95,13 @@ function App() {
             <div className="page-content">
               <h1>ABOUT US</h1>
               <p>
-               Elsewhere is a borderless DJ collective built around organic and melodic house. 
+               Elsewhere is a borderless DJ collective built around organic- and melodic deep house music. 
                We surface narrative-driven mixes from artists worldwide and open small, dedicated 
                rooms where listeners can hear stories, find inspiration, and connect.
               </p>
               <p>
                The name reflects the core idea: our sound isn’t tied to one place or scene, it comes from 
                distant influences and the artists who carry them.
-              </p>
-              <p>
-               We work with high performing artists from across the world, and together we want to 
-               present narrative driven performances and give talented DJs the opportunity to share 
-               their stories through music. 
               </p>
             </div>
           </div>
