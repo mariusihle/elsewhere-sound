@@ -15,7 +15,7 @@ function App() {
     setMenuOpen(false);
   };
 
-  // For mobile behavior of the Kokopelli text logo:
+  // For mobile KokopelliText logo behavior
   const isHomeMainVisible = currentPage === "home" && !menuOpen;
 
   return (
