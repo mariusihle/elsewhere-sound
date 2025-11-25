@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <title>Elsewhere</title>
 
-    <!-- Mobile no-zoom, correct scaling -->
+    <!-- Mobile no-zoom -->
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
@@ -16,14 +16,19 @@
       content="A borderless DJ collective curating narrative-driven organic and melodic house music."
     />
 
-    <!-- Open Graph (FB, Messenger, iMessage, Slack) -->
+    <!-- Open Graph (WhatsApp, Messenger, Slack, FB) -->
     <meta property="og:title" content="Elsewhere" />
     <meta
       property="og:description"
       content="A borderless DJ collective curating narrative-driven organic and melodic house music."
     />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="/Thumbnail.png" />
+    <meta property="og:url" content="https://elsewheresound.net/" />
+    <meta
+      property="og:image"
+      content="https://elsewheresound.net/Thumbnail.png"
+    />
+    <meta property="og:image:type" content="image/png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
 
@@ -34,7 +39,10 @@
       name="twitter:description"
       content="A borderless DJ collective curating narrative-driven organic and melodic house music."
     />
-    <meta name="twitter:image" content="/Thumbnail.png" />
+    <meta
+      name="twitter:image"
+      content="https://elsewheresound.net/Thumbnail.png"
+    />
 
     <!-- Styles -->
     <link rel="stylesheet" href="styles.css" />
@@ -43,14 +51,11 @@
   <body>
     <div id="root"></div>
 
-    <!-- React + ReactDOM (dev build, same as you had) -->
     <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
     <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
 
-    <!-- Babel for JSX -->
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
-    <!-- Your React app -->
     <script type="text/babel" src="app.js"></script>
   </body>
 </html>
