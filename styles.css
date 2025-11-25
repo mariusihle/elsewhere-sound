@@ -16,11 +16,17 @@
   box-sizing: border-box;
 }
 
+/* Lock viewport, no global scroll or bounce */
+html,
+body {
+  height: 100%;
+  overscroll-behavior: none;
+}
+
 body {
   font-family: "Atteron", sans-serif;
   color: white;
-  /* Home + menu: no scroll; content pages scroll internally */
-  overflow: hidden;
+  overflow: hidden; /* home + menu: no scroll; content scrolls inside .content-page */
 }
 
 /* APP */
@@ -37,6 +43,7 @@ body {
   background-size: cover;
   background-position: center;
   position: relative;
+  overscroll-behavior: none; /* kill pull/bounce on home */
 }
 
 /* HAMBURGER */
@@ -69,6 +76,8 @@ body {
   display: flex;
   cursor: pointer;
   z-index: 200;
+  overscroll-behavior: none; /* no bounce while menu open */
+  touch-action: none;         /* prevent drag scrolling under overlay */
 }
 
 /* MENU PANEL */
@@ -133,7 +142,7 @@ body {
 /* CONTENT PAGE */
 .content-page {
   width: 100%;
-  min-height: 100vh;         /* was height: 100vh; now can grow with content */
+  min-height: 100vh;         /* can grow with content */
   padding: 80px;
   background-image: url("https://i.imgur.com/x0Ck7aA.jpeg");
   background-size: cover;
@@ -196,7 +205,7 @@ body {
   gap: 80px;
   position: relative;
   z-index: 1;
-  /* height: 100%;  <-- removed so it doesn't fight min-height on content-page */
+  /* no forced height, let .content-page control it */
 }
 
 /* Upload text side */
