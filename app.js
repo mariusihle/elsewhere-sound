@@ -12,18 +12,23 @@ function App() {
     setIsClosingPage(false);
   };
 
-  // Close from content page: fade out, then go home with menu open
+  // Close from content page: fade to menu, then land on home+menu
   const closeContentPage = () => {
-    if (isClosingPage) return; // avoid double-trigger
+    if (isClosingPage) return; // avoid double-click issues
     setIsClosingPage(true);
+
+    // Open menu underneath *immediately* so we cross-fade to it
+    setMenuOpen(true);
+
+    // After fade-out finishes, actually switch back to home (menu stays open)
     setTimeout(() => {
       setIsClosingPage(false);
       setCurrentPage("home");
-      setMenuOpen(true);
-    }, 1000); // must match CSS fade-out duration
+      // leave menuOpen = true
+    }, 1000); // must match CSS duration
   };
 
-  // For Kokopelli logo state
+  // For Kokopelli state on mobile
   const isHomeMainVisible = currentPage === "home" && !menuOpen;
 
   return (
@@ -42,7 +47,7 @@ function App() {
         </div>
       )}
 
-      {/* Menu Overlay (always rendered, controlled by menuOpen) */}
+      {/* Menu Overlay – always present, controlled by menuOpen */}
       <div
         className={`menu-overlay ${menuOpen ? "open" : "closed"}`}
         onClick={() => menuOpen && setMenuOpen(false)}
