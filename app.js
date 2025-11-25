@@ -15,6 +15,9 @@ function App() {
     setMenuOpen(false);
   };
 
+  // Used to control mobile visibility of Kokopelli text logo
+  const isHomeMainVisible = currentPage === "home" && !menuOpen;
+
   return (
     <div className="app">
       {/* Home Page */}
@@ -230,6 +233,18 @@ function App() {
           </div>
         </div>
       )}
+
+      {/* Kokopelli transparent logo – fixed, always on top.
+          Desktop: always bottom-right.
+          Mobile: only visible when home is visible and menu is closed. */}
+      <div
+        className={
+          "kokopelli-fixed-logo " +
+          (isHomeMainVisible ? "state-home-open" : "state-other")
+        }
+      >
+        <img src="Kokopellitransparent.png" alt="Elsewhere" />
+      </div>
     </div>
   );
 }
