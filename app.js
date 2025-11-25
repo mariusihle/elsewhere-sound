@@ -10,12 +10,13 @@ function App() {
     setMenuOpen(false);
   };
 
+  // When closing a content page, go to home and show the menu
   const goHome = () => {
     setCurrentPage("home");
-    setMenuOpen(false);
+    setMenuOpen(true);
   };
 
-  // Control Kokopellitransparent on mobile home only
+  // Kokopelli text logo visible only on home when menu is closed (mobile)
   const isHomeMainVisible = currentPage === "home" && !menuOpen;
 
   return (
@@ -255,9 +256,7 @@ function App() {
         </div>
       )}
 
-      {/* Kokopelli transparent logo – fixed, always on top.
-          Desktop: bottom-right.
-          Mobile: centered bottom, only on home when menu closed. */}
+      {/* Kokopelli transparent logo */}
       <div
         className={
           "kokopelli-fixed-logo " +
