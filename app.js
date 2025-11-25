@@ -100,8 +100,8 @@ function App() {
                rooms where listeners can hear stories, find inspiration, and connect.
               </p>
               <p>
-               The name reflects the core idea: our sound isn’t tied to one place or scene, it comes from 
-               distant influences and the artists who carry them.
+               Our sound isn’t tied to one place or one scene, it comes from 
+               distant influences and are brought to us through stories, and by the artists who carries them.
               </p>
             </div>
           </div>
