@@ -141,7 +141,7 @@ function App() {
                       know that you can play on any equipment provided at an
                       event.
                     </li>
-                    <li>Try to keep your mix between 90 - 120 minutes.</li>
+                    <li>Try to keep your mix between 60 - 90 minutes.</li>
                     <li>Record in .wav if possible.</li>
                     <li>
                       Some keywords to keep in mind: Story driven, warm, deep,
