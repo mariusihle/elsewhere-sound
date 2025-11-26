@@ -148,10 +148,6 @@ function App() {
                       groovy, beautiful, organic, real.
                     </li>
                   </ul>
-                  <p>
-                    Some keywords to keep in mind: Story driven, warm, deep,
-                    groovy, beautiful, organic, real.
-                  </p>
                 </div>
 
                 <div className="upload-form">
